@@ -4,7 +4,7 @@
 
 
 <header class="sticky top-0 z-40 flex-none mx-auto w-full bg-white border-b border-gray-200 dark:border-gray-600 dark:bg-gray-800">
-    <div
+    {% comment %} <div
         id='banner'
         tabIndex='-1'
         class='flex z-50 justify-center py-3 px-4 w-full bg-gray-50 border border-b border-gray-200 dark:border-gray-600 lg:py-4 dark:bg-gray-700'>
@@ -30,7 +30,7 @@
 
           </p>
         </div>
-    </div> 
+    </div>  {% endcomment %}
 
     <div class="flex justify-between items-center py-3 px-3 mx-auto w-full max-w-8xl lg:px-4">
         <div class="flex items-center">
@@ -44,7 +44,7 @@
             <a href="/" class="flex">
                 {% comment %} <img src="https://www.svgrepo.com/show/76153/sailboat.svg" class="mr-3 h-8" alt="Hidden Truth&trade; Logo" /> {% endcomment %}
                 <h1 class="text-2xl font-extrabold text-gray-900 dark:text-white md:text-2xl lg:text-2xl">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Hidden Truth&trade;</span> <!-- self-center text-2xl font-semibold whitespace-nowrap dark:text-white -->
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 noto-serif-hebrew-bold">Hidden Truth&trade;</span> <!-- self-center text-2xl font-semibold whitespace-nowrap dark:text-white -->
                 </h1>
             </a>
             </div>
@@ -57,7 +57,7 @@
 
 
               <li class="mb-3 lg:px-2 xl:px-3 lg:mb-0 xl:block">
-                <button id="podcasts-dropdownNavbarLink" data-dropdown-toggle="podcasts-dropdownNavbar" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Podcasts <svg class="w-4 h-4 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+                <button id="podcasts-dropdownNavbarLink" data-dropdown-toggle="podcasts-dropdownNavbar" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Episodes <svg class="w-4 h-4 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
                 <!-- Dropdown menu -->
                 <div id="podcasts-dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
@@ -72,9 +72,25 @@
                 </div>
               </li>
 
-              <li class="mb-3 lg:px-2 xl:px-3 lg:mb-0 xl:block">
-                <a href="#" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Services</a>
-              </li>
+                <li class="mb-3 lg:px-2 xl:px-3 lg:mb-0 xl:block">
+                    <a href="{% url 'photos' %}" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Photos</a>
+                </li>
+
+                <li class="mb-3 lg:px-2 xl:px-3 lg:mb-0 xl:block">
+                    <a href="{% url 'map' %}" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Map</a>
+                </li>
+
+                <li class="mb-3 lg:px-2 xl:px-3 lg:mb-0 xl:block">
+                    <a href="{% url 'about' %}" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">About</a>
+                </li>
+
+                <li class="mb-3 lg:px-2 xl:px-3 lg:mb-0 xl:block">
+                    <a href="{% url 'hosts' %}" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Hosts</a>
+                </li>
+
+                <li class="mb-3 lg:px-2 xl:px-3 lg:mb-0 xl:block">
+                    <a href="{% url 'contact' %}" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Contact</a>
+                </li>
       
 
     
@@ -97,9 +113,15 @@
                   </div>
                   <ul class="py-2" aria-labelledby="user-menu-button">
                     {% if request.user.is_superuser %}
-                      <li>
-                        <a href="/admin/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Admin</a>
-                      </li>
+                        <li>
+                            <a href="{% url 'episode-create' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create episode</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'photo-create' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Add photo</a>
+                        </li>
+                        <li>
+                            <a href="/admin/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Admin</a>
+                        </li>
                     {% endif %}
                     <li>
                         <a href="{% url 'logout' %}" class="text-red-600 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
