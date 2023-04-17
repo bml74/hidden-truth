@@ -48,57 +48,57 @@ def contact(request):
     return render(request, 'about/contact.html', context=context)
 
 
-# class EpisodeDetailView(UserPassesTestMixin, DetailView):
-#     model = Episode
+class EpisodeDetailView(UserPassesTestMixin, DetailView):
+    model = Episode
 
-#     def test_func(self):
-#         return self.request.user.is_authenticated
+    def test_func(self):
+        return self.request.user.is_authenticated
 
-#     def get(self, request, *args, **kwargs):
-#         episode = get_object_or_404(Episode, pk=kwargs['pk'])
-#         context = {
-#             "item": episode
-#         }
-#         return render(request, 'market/COURSE_DESIGN.html', context)
-
-
-# class EpisodeCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
-#     model = Episode
-#     fields = EPISODE_FIELDS
-#     template_name = FORM_VIEW_TEMPLATE_NAME
-
-#     def form_valid(self, form):
-#         form.instance.podcast_fk = Podcast.objects.first()
-#         return super().form_valid(form)
-
-#     def test_func(self):
-#         return self.request.user.is_authenticated
-
-#     def get_context_data(self, **kwargs):
-#         context = super(EpisodeCreateView, self).get_context_data(**kwargs)
-#         header = "Create episode"
-#         create = True # If update, false; if create, true
-#         context.update({"header": header, "create": create})
-#         return context
+    def get(self, request, *args, **kwargs):
+        episode = get_object_or_404(Episode, pk=kwargs['pk'])
+        context = {
+            "item": episode
+        }
+        return render(request, 'market/COURSE_DESIGN.html', context)
 
 
-# class EpisodeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-#     model = Episode
-#     fields = EPISODE_FIELDS
-#     template_name = FORM_VIEW_TEMPLATE_NAME
+class EpisodeCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    model = Episode
+    fields = EPISODE_FIELDS
+    template_name = FORM_VIEW_TEMPLATE_NAME
 
-#     def form_valid(self, form):
-#         return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.podcast_fk = Podcast.objects.first()
+        return super().form_valid(form)
 
-#     def test_func(self):
-#         return self.request.user.is_superuser
+    def test_func(self):
+        return self.request.user.is_authenticated
 
-#     def get_context_data(self, **kwargs):
-#         context = super(EpisodeUpdateView, self).get_context_data(**kwargs)
-#         header = "Update episode"
-#         create = False # If update, false; if create, true
-#         context.update({"header": header, "create": create})
-#         return context
+    def get_context_data(self, **kwargs):
+        context = super(EpisodeCreateView, self).get_context_data(**kwargs)
+        header = "Create episode"
+        create = True # If update, false; if create, true
+        context.update({"header": header, "create": create})
+        return context
+
+
+class EpisodeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Episode
+    fields = EPISODE_FIELDS
+    template_name = FORM_VIEW_TEMPLATE_NAME
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    def get_context_data(self, **kwargs):
+        context = super(EpisodeUpdateView, self).get_context_data(**kwargs)
+        header = "Update episode"
+        create = False # If update, false; if create, true
+        context.update({"header": header, "create": create})
+        return context
 
 
 class HostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
