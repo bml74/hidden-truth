@@ -57,24 +57,25 @@
 
 
               <li class="mb-3 lg:px-2 xl:px-3 lg:mb-0 xl:block">
-                <button id="groups-dropdownNavbarLink" data-dropdown-toggle="groups-dropdownNavbar" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Groups <svg class="w-4 h-4 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+                <button id="podcasts-dropdownNavbarLink" data-dropdown-toggle="podcasts-dropdownNavbar" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Podcasts <svg class="w-4 h-4 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
                 <!-- Dropdown menu -->
-                <div id="groups-dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                <div id="podcasts-dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                       
-                      {% if request.user.is_authenticated %}
+                      {% for episode in episodes %}
                       <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My groups</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Episode {{ forloop.counter }}</a>
                       </li> 
-                      {% endif %}
-
-                      <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">All groups</a>
-                      </li>
+                      {% endfor %}
 
                     </ul>
                 </div>
               </li>
+
+              <li class="mb-3 lg:px-2 xl:px-3 lg:mb-0 xl:block">
+                <a href="#" class="flex items-center justify-between text-sm font-medium text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500 mt-1">Services</a>
+              </li>
+      
 
     
     
@@ -100,20 +101,8 @@
                         <a href="/admin/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Admin</a>
                       </li>
                     {% endif %}
-                        <li>
-                          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile and settings</a>
-                        </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Lotteries 💰</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Leaderboard</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ticket Hub</a>
-                    </li>
-                  <li>
-                        <a href="#" class="text-red-600 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                        <a href="{% url 'logout' %}" class="text-red-600 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
                     </li>
                   </ul>
                 </div>
@@ -121,17 +110,6 @@
             {% endif %}
 
 
-                <a type="button" href="#" class="inline-flex relative items-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1">
-                    {% comment %} <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg> {% endcomment %}
-                    <i class="fas fa-bell fa-lg"></i>
-                    <span class="sr-only">Notifications</span>
-                    {% comment %} <div class="inline-flex absolute -top-2 -right-2 justify-center items-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900">!</div> {% endcomment %}
-                </a> 
-  
-                <div id="tooltip-notifications" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
-                    View notifications
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div>
 
 
 
@@ -173,8 +151,8 @@
                     <img src="https://www.svgrepo.com/show/76153/sailboat.svg" class="mr-3 h-8" alt="Hidden Truth&trade; Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Hidden Truth&trade;</span>
                     </a>
-                    <p class="mb-3 max-w-lg text-gray-600 dark:text-gray-400">Hoyabay&trade; is a digital marketplace on which university students and organizations can seamlessly and conveniently transact.</p>
-                    <p class="mb-3 max-w-lg text-gray-600 dark:text-gray-400">Disclaimer: Hoyabay&trade; is privately run and not officially affiliated with any public or private universities in any way.</p>
+                    <p class="mb-3 max-w-lg text-gray-600 dark:text-gray-400">Hidden Truth&trade; is a digital marketplace on which university students and organizations can seamlessly and conveniently transact.</p>
+                    <p class="mb-3 max-w-lg text-gray-600 dark:text-gray-400">Disclaimer: Hidden Truth&trade; is privately run and not officially affiliated with any public or private universities in any way.</p>
                     {% comment %} <p class="max-w-lg text-gray-600 dark:text-gray-400">Code licensed <a href="https://github.com/themesberg/flowbite/blob/main/LICENSE.md" class="text-blue-600 dark:text-blue-500 hover:underline" rel="nofollow">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" class="text-blue-600 hover:underline dark:text-blue-500" rel="nofollow">CC BY 3.0</a>.</p> {% endcomment %}
                 </div>
                 <div>
@@ -222,11 +200,11 @@
                         </ul>
                         </div>
                         <div>
-                        <h3 class="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">Groups</h3>
+                        <h3 class="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">Podcasts</h3>
                         <ul>
                         <li class="mb-4">
                         <a disabled href="#" rel="noreferrer nofollow"
-                        class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">Groups</a>
+                        class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">Podcasts</a>
                         </li>
                     </ul>
                 </div>
@@ -248,7 +226,7 @@
                 </div>
             </div>
             <hr class="my-8 border-gray-200 dark:border-gray-700 lg:my-12" />
-            <span class="block text-center text-gray-600 dark:text-gray-400 font-">© 2023<span id="currentYear"></span> <a href="https://hoyabay.com/">Hoyabay&trade;</a> . All Rights Reserved.
+            <span class="block text-center text-gray-600 dark:text-gray-400 font-">© 2023<span id="currentYear"></span> <a href="https://Hidden Truth.com/">Hidden Truth&trade;</a> . All Rights Reserved.
             </span>
         </div>
     </footer>

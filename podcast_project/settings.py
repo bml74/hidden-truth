@@ -29,7 +29,9 @@ ALLOWED_HOSTS = [
     'hiddentruthpod.com',
     'www.hiddentruthpod.com',
     'http://127.0.0.1',
-    'http://localhost'
+    '127.0.0.1',
+    'http://localhost',
+    'localhost'
 ]
 
 
@@ -42,8 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
-    'crispy_forms',
+    'crispy_forms', 
 
     'podcast_main',
     'users',
@@ -158,8 +161,18 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+DEBUG = True
 if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = True
     DEBUG = False # SECURITY WARNING: don't run with debug turned on in production!
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+

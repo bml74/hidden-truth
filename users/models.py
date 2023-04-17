@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    x = models.CharField(max_length=10, null=True, blank=True)
 
     def __str__(self):
         return f'{self.user.username} Profile'

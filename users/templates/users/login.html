@@ -1,4 +1,4 @@
-{% extends "dependencies/dependencies.html" %}
+{% extends "base/dependencies.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -24,11 +24,11 @@
           <div class="t6gkcSf0Bt4MLItXvDJ_ IvHclGgvMLtYg_ow0uba b2voPh7pqNbYIn9ArgrM BJhi2nPur3FVtXfbBkqr _RuYfOgGb_Zp_Qy2emT5 vXKUKRP3PRKQ_RH5opI2">
                 <br><br><br>
               <a href="#" class="YRrCJSr_j5nopfm4duUc Q_jg_EPdNf9eDMn1mLI2 Nm7xMnguzOx6J5Ao7yCU HpZzxvgSmWLxwGF95rQK q1oXbofRCOhVhOSB8tiU yM_AorRf2jSON3pDsdrz jf_cbOmwTWYNge_xgG4B OyABRrnTV_kvHV7dJ0uE">
-                    <img src="https://www.svgrepo.com/show/76153/sailboat.svg" class="y7LTF_4HCOoAzmZm_v8k TZANVyZaogC2vtqxZ7oo" alt="FlowBite Logo">
-                    <span style="font-size: 32px !important; line-height: 1.2;" class="font-bold text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Hoyabay&trade;</span>  
+                    {% comment %} <img src="https://www.svgrepo.com/show/76153/sailboat.svg" class="y7LTF_4HCOoAzmZm_v8k TZANVyZaogC2vtqxZ7oo" alt="FlowBite Logo"> {% endcomment %}
+                    <span style="font-size: 32px !important; line-height: 1.2;" class="font-bold text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 noto-serif-hebrew-bold">Hidden Truth</span>  
                 </a>
                 <div class="text-center">
-                    <h6 class="text-lg dark:text-white">The premier student-run marketplace for university areas</h6>
+                    <h6 class="noto-serif-hebrew-bold text-lg dark:text-white">Uncovering the death and legacy of David Shick</h6>
                 </div>
 
 
@@ -48,9 +48,9 @@
                     <div class="c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe PeR2JZ9BZHYIH8Ea3F36 XIIs8ZOri3wm8Wnj9N_y">
                         Not registered? <a class="OQflBVxALl1Ntbyc2J2_ oJZU4OQzzfXeLbF7UKZ_ fZf6W_ZtzEh6EEqmWMA9" href="{% url 'register' %}">Create account</a>
                     </div>
-                    <div class="c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe PeR2JZ9BZHYIH8Ea3F36 XIIs8ZOri3wm8Wnj9N_y">
+                    {% comment %} <div class="c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe PeR2JZ9BZHYIH8Ea3F36 XIIs8ZOri3wm8Wnj9N_y">
                         Forgot password? <a class="OQflBVxALl1Ntbyc2J2_ oJZU4OQzzfXeLbF7UKZ_ fZf6W_ZtzEh6EEqmWMA9" href="{% url 'password_reset' %}">Reset password</a>
-                    </div>
+                    </div> {% endcomment %}
                   
               </form>
               <br><br><br>
@@ -73,7 +73,7 @@
 
   <form class="form-signin" method="POST">
     
-    <h1 class="h2 mb-3 font-weight-normal"><strong>Hoyabay&trade;</strong></h1>
+    <h1 class="h2 mb-3 font-weight-normal"><strong>Hidden Truth&trade;</strong></h1>
     <h5 class="mb-3">Please sign in</h5>
 
     {% csrf_token %}{{ form|crispy }}
