@@ -101,23 +101,23 @@ def contact(request):
 #         return context
 
 
-# class HostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-#     model = Host
-#     fields = HOST_FIELDS
-#     template_name = FORM_VIEW_TEMPLATE_NAME
+class HostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Host
+    fields = HOST_FIELDS
+    template_name = FORM_VIEW_TEMPLATE_NAME
 
-#     def form_valid(self, form):
-#         return super().form_valid(form)
+    def form_valid(self, form):
+        return super().form_valid(form)
 
-#     def test_func(self):
-#         return self.request.user.is_superuser
+    def test_func(self):
+        return self.request.user.is_superuser
 
-#     def get_context_data(self, **kwargs):
-#         context = super(HostUpdateView, self).get_context_data(**kwargs)
-#         header = "Update host"
-#         create = False # If update, false; if create, true
-#         context.update({"header": header, "create": create})
-#         return context
+    def get_context_data(self, **kwargs):
+        context = super(HostUpdateView, self).get_context_data(**kwargs)
+        header = "Update host"
+        create = False # If update, false; if create, true
+        context.update({"header": header, "create": create})
+        return context
 
 
 # class PhotoCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
