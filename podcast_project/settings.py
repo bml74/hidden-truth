@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-kiiss3=usyq_x$o^2l9iadmfgta_rg%z$^1gy^lse$jk3^12f+
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'https://hidden-truth-pod.herokuapp.com/',
+    'https://hidden-truth-pod.herokuapp.com',
+    'hidden-truth-pod.herokuapp.com',
     'hiddentruthpod.com',
     'http://127.0.0.1',
     'http://localhost'
