@@ -81,7 +81,6 @@ netaddr==0.8.0
 oauthlib==3.2.2
 openpyxl==3.0.10
 packaging==21.3
-pandas-stubs==1.4.3.220801
 parsimonious==0.8.1
 phonenumbers==8.12.57
 protobuf==3.20.2
