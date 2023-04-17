@@ -1,4 +1,4 @@
-# from .models import Podcast, Episode, Host, Photo
+from .models import Podcast, Episode, Host, Photo
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.views.generic import (
@@ -19,33 +19,33 @@ def home(request):
     return render(request, 'home.html')
 
 
-# def about(request):
-#     return render(request, 'about/about.html')
+def about(request):
+    return render(request, 'about/about.html')
 
 
-# def photos(request):
-#     context = {"photos": Photo.objects.all()}
-#     return render(request, 'about/photos.html', context=context)
+def photos(request):
+    context = {"photos": Photo.objects.all()}
+    return render(request, 'about/photos.html', context=context)
 
 
-# def map(request):
-#     return render(request, 'about/map.html')
+def map(request):
+    return render(request, 'about/map.html')
 
 
-# def hosts(request):
-#     hosts = Host.objects.all()
-#     context = {
-#         "hosts": hosts
-#     }
-#     return render(request, 'about/hosts.html', context=context)
+def hosts(request):
+    hosts = Host.objects.all()
+    context = {
+        "hosts": hosts
+    }
+    return render(request, 'about/hosts.html', context=context)
 
 
-# def contact(request):
-#     hosts = Host.objects.all()
-#     context = {
-#         "hosts": hosts
-#     }
-#     return render(request, 'about/contact.html', context=context)
+def contact(request):
+    hosts = Host.objects.all()
+    context = {
+        "hosts": hosts
+    }
+    return render(request, 'about/contact.html', context=context)
 
 
 # class EpisodeDetailView(UserPassesTestMixin, DetailView):
