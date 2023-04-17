@@ -178,9 +178,9 @@ if os.getcwd() == '/app':
     DEBUG = False # SECURITY WARNING: don't run with debug turned on in production!
 
 
-# LOGIN_URL = 'login'
-# LOGIN_REDIRECT_URL = 'home' 
-# LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home' 
+LOGOUT_REDIRECT_URL = 'login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
