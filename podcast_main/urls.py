@@ -15,7 +15,7 @@ urlpatterns = [
     path('new/', views.EpisodeCreateView.as_view(), name='episode-create'),
     path('update/<int:pk>/', views.EpisodeUpdateView.as_view(), name='episode-update'), 
     path('host/update/<int:pk>/', views.HostUpdateView.as_view(), name='host-update'),
-    # path('photo/new/', views.PhotoCreateView.as_view(), name='photo-create'),
-    # path('photo/update/<int:pk>/', views.PhotoUpdateView.as_view(), name='photo-update'), 
+    path('photo/new/', views.PhotoCreateView.as_view(), name='photo-create'),
+    path('photo/update/<int:pk>/', views.PhotoUpdateView.as_view(), name='photo-update'), 
 
 ]

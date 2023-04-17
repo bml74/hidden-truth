@@ -120,40 +120,40 @@ class HostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return context
 
 
-# class PhotoCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
-#     model = Photo
-#     fields = PHOTO_FIELDS
-#     template_name = FORM_VIEW_TEMPLATE_NAME
+class PhotoCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    model = Photo
+    fields = PHOTO_FIELDS
+    template_name = FORM_VIEW_TEMPLATE_NAME
 
-#     def form_valid(self, form):
-#         return super().form_valid(form)
+    def form_valid(self, form):
+        return super().form_valid(form)
 
-#     def test_func(self):
-#         return self.request.user.is_superuser
+    def test_func(self):
+        return self.request.user.is_superuser
 
-#     def get_context_data(self, **kwargs):
-#         context = super(PhotoCreateView, self).get_context_data(**kwargs)
-#         header = "Add photo"
-#         create = True # If update, false; if create, true
-#         context.update({"header": header, "create": create})
-#         return context
+    def get_context_data(self, **kwargs):
+        context = super(PhotoCreateView, self).get_context_data(**kwargs)
+        header = "Add photo"
+        create = True # If update, false; if create, true
+        context.update({"header": header, "create": create})
+        return context
 
 
-# class PhotoUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-#     model = Photo
-#     fields = PHOTO_FIELDS
-#     template_name = FORM_VIEW_TEMPLATE_NAME
+class PhotoUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Photo
+    fields = PHOTO_FIELDS
+    template_name = FORM_VIEW_TEMPLATE_NAME
 
-#     def form_valid(self, form):
-#         return super().form_valid(form)
+    def form_valid(self, form):
+        return super().form_valid(form)
 
-#     def test_func(self):
-#         return self.request.user.is_superuser
+    def test_func(self):
+        return self.request.user.is_superuser
 
-#     def get_context_data(self, **kwargs):
-#         context = super(PhotoUpdateView, self).get_context_data(**kwargs)
-#         header = "Update photo"
-#         create = False # If update, false; if create, true
-#         context.update({"header": header, "create": create})
-#         return context
+    def get_context_data(self, **kwargs):
+        context = super(PhotoUpdateView, self).get_context_data(**kwargs)
+        header = "Update photo"
+        create = False # If update, false; if create, true
+        context.update({"header": header, "create": create})
+        return context
 
