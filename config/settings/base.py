@@ -9,32 +9,16 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 import os
 import dj_database_url
-from pathlib import Path
-from decouple import config
 from dotenv import load_dotenv, find_dotenv
+from decouple import config
+
+from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-
-ALLOWED_HOSTS = [
-    'https://hidden-truth-pod.herokuapp.com',
-    'hidden-truth-pod.herokuapp.com',
-    'hiddentruthpod.com',
-    'www.hiddentruthpod.com',
-    'http://127.0.0.1',
-    '127.0.0.1',
-    'http://localhost',
-    'localhost'
-]
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Application definition
@@ -56,16 +40,17 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
-ROOT_URLCONF = 'podcast_project.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -80,10 +65,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'podcast_main.context_processors.getEpisodes',
+                # 'market.context_processors.get_num_notifications',
+                'social_django.context_processors.backends'
             ],
             'libraries':{
-            # 'auth_extras': 'podcast_project.templatetags.auth_extras',
+            'auth_extras': 'config.templatetags.auth_extras',
             
             }
         },
@@ -91,23 +77,22 @@ TEMPLATES = [
 ]
 
 
-WSGI_APPLICATION = 'podcast_project.wsgi.application'
-
-# load_dotenv(find_dotenv())
-
-# DATABASES = {'default': dj_database_url.config(default='sqlite:///db.sqlite3', conn_max_age=600)}
-
-
-
+WSGI_APPLICATION = 'config.wsgi.application'
+AUTHENTICATION_BACKENDS = (
+'social_core.backends.google.GoogleOAuth2',
+'social_core.backends.facebook.FacebookOAuth2',
+'django.contrib.auth.backends.ModelBackend'
+)
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "268907281420-e8f3egpcid35usei3qemf6hpl9fh7c4g.apps.googleusercontent.com"
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "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"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "271240566437-co3rtiq56tejhhqf66b0h73c367nlcqo.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "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"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+load_dotenv(find_dotenv())
+
+DATABASES = {'default': dj_database_url.config(default='sqlite:///db.sqlite3', conn_max_age=600)}
 
 
 # Password validation
@@ -141,7 +126,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -149,35 +133,29 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# STATIC_URL = '/static/'
-
-
-STATIC_URL = 'static/'
-
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-DEBUG = True
-if os.getcwd() == '/app':
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SECURE_SSL_REDIRECT = True
-    DEBUG = False # SECURITY WARNING: don't run with debug turned on in production!
-
-
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home' 
-LOGOUT_REDIRECT_URL = 'login'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Custom Authentication
+
+LOGIN_URL = 'login'#'two_factor:login'
+LOGIN_REDIRECT_URL = 'index'#'listings-all'
+LOGOUT_REDIRECT_URL = 'login'#'two_factor:login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
