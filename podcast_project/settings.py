@@ -80,7 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'podcast_main.context_processors.getEpisodes',
+                # 'podcast_main.context_processors.getEpisodes',
             ],
             'libraries':{
             # 'auth_extras': 'podcast_project.templatetags.auth_extras',

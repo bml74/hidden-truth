@@ -3,9 +3,9 @@ from django.shortcuts import get_object_or_404
 from .models import Podcast, Episode
 
 
-def getEpisodes(request):
-    podcast = get_object_or_404(Podcast, title="Hidden Truth")
-    episodes = Episode.objects.filter(podcast_fk=podcast).all()
-    return {
-        'episodes': episodes
-    }
+# def getEpisodes(request):
+#     podcast = get_object_or_404(Podcast, title="Hidden Truth")
+#     episodes = Episode.objects.filter(podcast_fk=podcast).all()
+#     return {
+#         'episodes': episodes
+#     }
