@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     'https://hidden-truth-pod.herokuapp.com',
     'hidden-truth-pod.herokuapp.com',
     'hiddentruthpod.com',
+    'www.hiddentruthpod.com',
     'http://127.0.0.1',
     'http://localhost'
 ]
