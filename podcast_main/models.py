@@ -17,6 +17,7 @@ class Episode(models.Model):
     podcast_fk = models.ForeignKey(Podcast, on_delete=models.CASCADE)
     listens = models.IntegerField(default=0)
     locked = models.BooleanField(default=True)
+    txt = models.CharField(max_length=512, default="")
 
     def __str__(self):
         return self.title
