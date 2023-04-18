@@ -103,13 +103,20 @@ WSGI_APPLICATION = 'podcast_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+    default='postgres://jzryznwoqhvgtc:853a4be12afa89333c5621c8d49c834d1bb330f76aedf5a2b304ea5aa0312f59@ec2-54-234-13-16.compute-1.amazonaws.com/df5dnfrvu2n1nv',
+    conn_max_age=600,
+    ssl_require=True
+    )
 }
-
+# postgres://jzryznwoqhvgtc:853a4be12afa89333c5621c8d49c834d1bb330f76aedf5a2b304ea5aa0312f59@ec2-54-234-13-16.compute-1.amazonaws.com:5432/df5dnfrvu2n1nv
 
 
 
