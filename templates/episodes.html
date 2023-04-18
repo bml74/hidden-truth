@@ -1,0 +1,169 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block title %}
+Hidden Truth Podcasts
+{% endblock title %}
+
+{% block main %}
+
+
+<style>
+    @media (min-width: 768px) {
+        .main-image {
+            margin: auto; width: 14%;
+        }
+    }
+    @media (max-width: 768px) {
+        .main-image {
+            margin: auto; width: 40%;
+        }
+    }
+    .center {
+        margin: auto;
+      }
+</style>
+
+
+<div class="py-4"></div>
+
+<main class="grow" style="margin-left: 2%; margin-right: 2%;">
+
+    <div class="w-full px-5 mx-auto"> <!-- w-full px-5 mx-auto -->
+        <div class="lg:flex">
+
+
+
+
+            <main id="content-wrapper" class="flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible">
+                <div class="flex w-full">
+
+                    <div class="flex-auto min-w-0 pt-6 lg:px-8 lg:pt-8 pb:12 xl:pb-24 lg:pb-16">
+
+
+                        <div id="mobile-header" class="text-center pb-4 mb-8">
+
+                    
+                            <h1 class="noto-serif-hebrew-bold mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-blue-700">Hidden Truth</span></h1>
+                            <h1 class="noto-serif-hebrew-bold mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">The Death and Legacy of David Shick</h1>
+                            <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Listen to the four-part exclusive podcast series to uncover the circumstances behind the death of David Shick and his lasting legacy at Georgetown University.</p>
+
+
+
+                            
+                            
+                            
+                                                        
+                        </div>
+
+                
+                        <div id="mainContent">
+
+
+                            {% comment %} <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2" id="episodes">
+                                {% for episode in episodes %}
+
+                                    <div class="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                        <h5 class="noto-serif-hebrew-bold mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ episode.title }}</h5>
+                                        <div class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ episode.description|safe }}</div>
+                                        {% if not episode.locked %}
+                                        <a href="{% url 'episode-detail' episode.id %}" class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <i class="fas fa-arrow-right mr-2"></i>
+                                            Visit
+                                        </a>
+                                        {% else %}
+                                        <a class="pointer-events-none mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                            <i class="fas fa-lock mr-2"></i> 
+                                            Episode locked
+                                        </a>
+                                        {% endif %}
+                                        {% if request.user.is_superuser %}
+                                        <a href="{% url 'episode-update' episode.id %}" class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <i class="fas fa-arrow-right mr-2"></i>
+                                            Update
+                                        </a>
+                                        {% endif %}
+                                    </div>
+
+                                {% endfor %}
+                            </div> {% endcomment %}
+
+
+                            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2" id="episodes">
+
+                                    <div class="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                        <h5 class="noto-serif-hebrew-bold mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Episode 1</h5>
+                                        <div class="mb-3 font-normal text-gray-700 dark:text-gray-400">Episode 1 description</div>
+                                        <a href="{% url 'e1' %}" class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <i class="fas fa-arrow-right mr-2"></i>
+                                            Visit
+                                        </a>
+                                    </div>
+
+                                    <div class="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                        <h5 class="noto-serif-hebrew-bold mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Episode 2</h5>
+                                        <div class="mb-3 font-normal text-gray-700 dark:text-gray-400">Episode 2 description</div>
+                                        <a class="pointer-event-none mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <i class="fas fa-lock mr-2"></i>
+                                            Locked
+                                        </a>
+                                    </div>
+
+                                    <div class="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                        <h5 class="noto-serif-hebrew-bold mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ episode.title }}</h5>
+                                        <div class="mb-3 font-normal text-gray-700 dark:text-gray-400">Episode 3 description</div>
+                                        <a class="pointer-event-none mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <i class="fas fa-lock mr-2"></i>
+                                            Locked
+                                        </a>
+                                    </div>
+
+                                    <div class="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                        <h5 class="noto-serif-hebrew-bold mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ episode.title }}</h5>
+                                        <div class="mb-3 font-normal text-gray-700 dark:text-gray-400">Episode 4 description</div>
+                                        <a class="pointer-event-none mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <i class="fas fa-lock mr-2"></i>
+                                            Locked
+                                        </a>
+                                    </div>
+
+                            </div>
+                    
+                        </div> 
+
+                    </div>
+
+
+                
+
+                </div> 
+                
+            </main> 
+
+
+        </div>
+    </div>
+
+
+    
+
+
+
+</main>
+
+<div class="py-4"></div>
+<div class="py-4"></div>
+<div class="py-4"></div>
+
+
+
+
+
+
+
+{% endblock main %}
+
+
+
+

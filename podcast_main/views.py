@@ -19,6 +19,26 @@ def home(request):
     return render(request, 'home.html')
 
 
+def episodes(request):
+    return render(request, 'episodes.html')
+
+
+def e1(request):
+    return render(request, 'episodes/e1.html')
+
+
+def e2(request):
+    return render(request, 'episodes/e2.html')
+
+
+def e3(request):
+    return render(request, 'episodes/e3.html')
+
+
+def e4(request):
+    return render(request, 'episodes/e4.html')
+
+
 def about(request):
     return render(request, 'about/about.html')
 
@@ -30,6 +50,10 @@ def photos(request):
 
 def map(request):
     return render(request, 'about/map.html')
+
+
+def documents(request):
+    return render(request, 'about/documents.html')
 
 
 def hosts(request):
