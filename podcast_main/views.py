@@ -59,7 +59,7 @@ class EpisodeDetailView(UserPassesTestMixin, DetailView):
         context = {
             "item": episode
         }
-        return render(request, 'market/COURSE_DESIGN.html', context)
+        return render(request, 'episode.html', context)
 
 
 class EpisodeCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
