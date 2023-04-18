@@ -180,6 +180,10 @@
                     <h3 class="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">Episodes</h3>
                     <ul>
                         <li class="mb-4">
+                            <a href="#"
+                            class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">All episodes</a>
+                        </li>
+                        <li class="mb-4">
                         <a href="#"
                         class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">Episode 1</a>
                         </li>
@@ -198,11 +202,11 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">Help and support</h3>
+                    <h3 class="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">About</h3>
                     <ul>
                         <li class="mb-4">
                             <a href="#" rel="noreferrer nofollow"
-                            class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">Contact us</a>
+                            class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">About</a>
                         </li>
                         {% if request.user.is_superuser %}
                         <li class="mb-4">
@@ -217,11 +221,19 @@
                         </ul>
                         </div>
                         <div>
-                        <h3 class="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">Podcasts</h3>
+                        <h3 class="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">Resources</h3>
                         <ul>
                         <li class="mb-4">
+                        <a disabled href="{% url 'photos' %}" rel="noreferrer nofollow"
+                        class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">Photos</a>
+                        </li>
+                        <li class="mb-4">
+                        <a disabled href="{% url 'map' %}" rel="noreferrer nofollow"
+                        class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">Map</a>
+                        </li>
+                        <li class="mb-4">
                         <a disabled href="#" rel="noreferrer nofollow"
-                        class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">Podcasts</a>
+                        class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">Documents</a>
                         </li>
                     </ul>
                 </div>
