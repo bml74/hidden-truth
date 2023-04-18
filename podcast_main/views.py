@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 FORM_VIEW_TEMPLATE_NAME = 'form_view.html'
-EPISODE_FIELDS = ['title', 'description']
+EPISODE_FIELDS = ['title', 'description', 'locked']
 HOST_FIELDS = ['description']
 PHOTO_FIELDS = ['image', 'description']
 
