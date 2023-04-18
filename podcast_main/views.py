@@ -57,7 +57,7 @@ class EpisodeDetailView(UserPassesTestMixin, DetailView):
     def get(self, request, *args, **kwargs):
         episode = get_object_or_404(Episode, pk=kwargs['pk'])
         context = {
-            "item": episode
+            "episode": episode
         }
         return render(request, 'episode.html', context)
 
