@@ -64,7 +64,7 @@
                       
                       {% for episode in episodes %}
                       <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Episode {{ forloop.counter }}</a>
+                        <a {% if not episode.locked %} href="{% url 'episode-detail' episode.id %}" {% endif %} class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white {% if episode.locked %}pointer-events-none{% endif %}">{% if episode.locked %}<i class="fas fa-lock mr-2"></i>{% else %}<i class="fas fa-check-circle mr-2"></i>{% endif %}Episode {{ forloop.counter }}</a>
                       </li> 
                       {% endfor %}
 
