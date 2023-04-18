@@ -110,8 +110,6 @@ DATABASES = {
     }
 }
 
-django_on_heroku.settings(locals())
-del DATABASES['default']['OPTIONS']['sslmode']
 
 
 # Password validation
