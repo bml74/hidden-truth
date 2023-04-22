@@ -48,7 +48,55 @@ def about(request):
 
 
 def photos(request):
-    context = {"photos": Photo.objects.all()}
+
+    deborah_shick_photos = []
+    deborah_shick_photos = [
+        "IMG_1293.png",
+        "IMG_1294.png",
+        "IMG_1295.png",
+        "IMG_1296.png",
+        "IMG_1297.png",
+        "IMG_1298.png",
+        "IMG_1299.png",
+        "IMG_1300.png",
+        "IMG_1301.png",
+        "IMG_1302.png",
+        "IMG_1303.png",
+        "IMG_1304.png",
+        "IMG_1305.png"
+    ]
+    for i in range(len(deborah_shick_photos)):
+        deborah_shick_photos[i] = f"https://rwbruno.s3.amazonaws.com/hidden-truth/deborah-shick/{deborah_shick_photos[i]}"
+    
+    christine_hammond_photos = []
+    christine_hammond_photos = [
+        "69925403639__70768B8A-2EFA-41B2-95BB-F9FCD5D23222.png",
+        "69925406429__F5F9DEE8-9CAF-46FD-BE70-DD75E48863D7.png",
+        "69925407770__9DF3E0A8-C961-4B7D-BA0C-95DA9632763F.png",
+        "69925412435__48B5A02D-FE77-4119-B839-AAEA574CDE98.png",
+        "69925415141__F052B8F4-70AC-4F31-8739-4F80FDB4F2CC.png",
+        "IMG_6775.png",
+        "IMG_6776.png"
+    ]
+    for i in range(len(christine_hammond_photos)):
+        christine_hammond_photos[i] = f"https://rwbruno.s3.amazonaws.com/hidden-truth/christine-hammond/{christine_hammond_photos[i]}"
+    
+    erin_flynn_photos = []
+    erin_flynn_photos = [
+        "IMG_1218.png",
+        "IMG_1221.png",
+        "IMG_1222.png",
+        "IMG_1239.png",
+        "IMG_1240.png"
+    ]
+    for i in range(len(erin_flynn_photos)):
+        erin_flynn_photos[i] = f"https://rwbruno.s3.amazonaws.com/hidden-truth/erin-flynn/{erin_flynn_photos[i]}"
+
+    context = {
+        "deborah_shick_photos": deborah_shick_photos,
+        "christine_hammond_photos": christine_hammond_photos,
+        "erin_flynn_photos": erin_flynn_photos
+    }
     return render(request, 'about/photos.html', context=context)
 
 

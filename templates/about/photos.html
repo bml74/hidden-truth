@@ -59,13 +59,49 @@ Photos
                 
                         <div id="mainContent">
 
-                            {% for photo in photos %}
+                            {% for link in deborah_shick_photos %}
 
-                            <img class="sm:px-16 xl:px-48" style="width: 100%; height: auto;" src="{{ photo.image.url }}" alt="">
+                            <img class="sm:px-16 xl:px-48" style="width: 100%; height: auto;" src="{{ link }}" alt="">
 
-                            <div class="text-align-justify noto-serif-hebrew-bold mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-                                {{ photo.description|safe }}
+                            <div class="text-center text-align-justify noto-serif-hebrew-bold mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+                                <div class="text-center">
+                                    Courtesy of Deborah Shick
+                                </div>
                             </div>
+
+                            <div class="py-2"></div>
+
+                            {% endfor %}
+
+
+
+                            {% for link in christine_hammond_photos %}
+
+                            <img class="sm:px-16 xl:px-48" style="width: 100%; height: auto;" src="{{ link }}" alt="">
+
+                            <div class="text-center text-align-justify noto-serif-hebrew-bold mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+                                <div class="text-center">
+                                    Courtesy of Christine Hammond
+                                </div>
+                            </div>
+
+                            <div class="py-2"></div>
+
+                            {% endfor %}
+
+
+
+                            {% for link in erin_flynn_photos %}
+
+                            <img class="sm:px-16 xl:px-48" style="width: 100%; height: auto;" src="{{ link }}" alt="">
+
+                            <div class="text-center noto-serif-hebrew-bold mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+                                <div class="text-center">
+                                    Courtesy of Erin Flynn
+                                </div>
+                            </div>
+
+                            <div class="py-2"></div>
 
                             {% endfor %}
                     
