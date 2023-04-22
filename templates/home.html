@@ -32,7 +32,7 @@ About Hidden Truth Podcast
     <div class="w-full mx-auto"> <!-- w-full px-5 mx-auto -->
         <div class="lg:flex">
 
-            <img src="https://rwbruno.s3.amazonaws.com/hidden-truth/hidden-truth-logo.jpeg" alt="">
+            {% comment %} <img src="https://rwbruno.s3.amazonaws.com/hidden-truth/hidden-truth-logo.jpeg" alt=""> {% endcomment %}
 
 
 
@@ -52,6 +52,9 @@ About Hidden Truth Podcast
                             <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Listen to the four-part exclusive podcast series to uncover the circumstances behind the death of David Shick and his lasting legacy at Georgetown University.</p> {% endcomment %}
 
 
+                            <h1 class="noto-serif-hebrew-bold mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">Hidden Truth <span class="text-blue-700"></span></h1>
+                            <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Listen to the four-part exclusive podcast series to uncover the circumstances behind the death of David Shick and his lasting legacy at Georgetown University.</p>
+                            <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Available on iTunes, Amazon Music, and Podbean. Also available on the Hidden Truth website at <a style="text-decoration: underline;" href="{% url 'episodes' %}">this link</a>.</p>
 
                             
                             
@@ -60,13 +63,30 @@ About Hidden Truth Podcast
                         </div>
 
                 
-                        <div id="mainContent">
+                        <div id="mainContent" class="text-center">
 
 
 
 
-                            
 
+                     
+                                <div class="center mb-4">
+                                    <a target="_blank" href="https://podcasts.apple.com/us/podcast/hidden-truth-the-death-and-legacy-of-david-shick/id1683623566">
+                                        <img width="80px" height="80px" src="https://d8g345wuhgd7e.cloudfront.net/site/images/admin5/apple-podcast.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="py-2"></div>
+                                <div class="center mb-4">
+                                    <a target="_blank" href="https://r4j68.app.goo.gl/?link=https%3A%2F%2Fpodtothemax.podbean.com%3Faction%3DopenPodcast%26podcastId%3Dpbblog16328257%26podcastIdTag%3D93ht4&dfl=https%3A%2F%2Fpodtothemax.podbean.com&utm_campaign=pb_web&utm_source=podbean_web&utm_medium=dlink&imv=670&amv=530&isi=973361050&ibi=com.podbean.app.podcast&ipbi=com.podbean.app.podcast&apn=com.podbean.app.podcast">
+                                        <img width="80px" height="80px" src="https://d8g345wuhgd7e.cloudfront.net/site/images/admin5/podbean-app.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="py-2"></div>
+                                <div class="center mb-4">
+                                    <a target="_blank" href="https://music.amazon.com/podcasts/d697b209-6167-4025-9738-c1810d31bd5d">
+                                        <img width="80px" height="80px" src="https://d8g345wuhgd7e.cloudfront.net/site/images/admin5/AmazonMusic.png" alt="">
+                                    </a>
+                                </div>
                     
                         </div> 
 
