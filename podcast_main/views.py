@@ -19,6 +19,10 @@ def home(request):
     return render(request, 'home.html')
 
 
+def trailer(request):
+    return render(request, 'episodes/trailer.html')
+
+
 def episodes(request):
     return render(request, 'episodes.html')
 

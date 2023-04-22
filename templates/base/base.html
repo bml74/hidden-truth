@@ -67,10 +67,10 @@
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                       
                         <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Trailer</a>
+                            <a href="{% url 'trailer' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Trailer</a>
                         </li> 
                         <li>
-                            <a href="{% url 'episodes' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Episodes</a>
+                            <a href="{% url 'episodes' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">All episodes</a>
                         </li> 
 
                       {% comment %} {% for episode in episodes %}
@@ -206,6 +206,10 @@
                 <div>
                     <h3 class="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">Episodes</h3>
                     <ul>
+                        <li class="mb-4">
+                            <a href="{% url 'trailer' %}"
+                            class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">Trailer</a>
+                        </li>
                         <li class="mb-4">
                             <a href="{% url 'episodes' %}"
                             class="font-normal text-gray-600 dark:text-gray-400 dark:hover:text-white hover:underline">All episodes</a>
